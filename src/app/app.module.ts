@@ -12,12 +12,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './components/home/home.component';
+import { TransactionAddComponent } from './components/transaction-add/transaction-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    TransactionAddComponent
   ],
   imports: [
     BrowserModule,
