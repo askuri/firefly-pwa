@@ -1,0 +1,12 @@
+<div *ngIf="apiTokenService.isTokenSet()">
+  <p>You are already logged in. You can change the token here though.</p>
+</div>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="standard">
+    <mat-label>Personal Access Token</mat-label>
+    <input matInput type="text" formControlName="personalAccessToken">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary">Submit</button>
+</form>
