@@ -2,7 +2,7 @@
   <!-- Description -->
   <mat-form-field appearance="standard">
     <mat-label>Description</mat-label>
-    <input matInput type="text" formControlName="description">
+    <input matInput type="text" formControlName="description" required>
   </mat-form-field>
   <br>
   <!-- Source Account -->
@@ -14,6 +14,20 @@
   <app-form-account-picker [parentForm]="addTransactionForm"
                            [parentFormControl]="addTransactionForm.get('destinationAccount')"
                            [accountType]="'Asset account,Expense account,Loan,Debt,Mortgage'"></app-form-account-picker>
+  <br>
+  <!-- Date -->
+  <mat-form-field appearance="standard">
+    <mat-label>Date</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="picker" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <!-- Amount -->
+  <mat-form-field appearance="standard">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" formControlName="amount" step="0.01" required>
+  </mat-form-field>
   <br>
   <button mat-raised-button color="primary">Submit</button>
 </form>
