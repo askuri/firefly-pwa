@@ -40,9 +40,17 @@ export class AccountPickerComponent implements OnInit {
         this.filteredOptions = this.parentFormControl.valueChanges
           .pipe(
             startWith(''),
-            map(value => this._filter(value))
+            map(value => typeof value === 'string' ? value : value.name),
+            map(name => name ? this._filter(name) : this.options.slice())
           );
       });
+  }
+
+  /**
+   * Gives the display name of autocomplete entry. Used with displayWith
+   */
+  displayFn(account: components['schemas']['AutocompleteAccount']): string {
+    return account && account.name ? account.name : '';
   }
 
   private _filter(value: string): components['schemas']['AutocompleteAccountArray'] {
