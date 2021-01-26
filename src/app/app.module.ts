@@ -9,7 +9,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './pages/home/home.component';
 import { TransactionAddComponent } from './pages/transaction-add/transaction-add.component';
 import { AccountPickerComponent } from './components/form/account-picker/account-picker.component';
-import { BudgetPickerComponent } from './components/form/budget-picker/budget-picker.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +32,6 @@ import { AutocompleteComponent } from './components/form/autocomplete/autocomple
     HomeComponent,
     TransactionAddComponent,
     AccountPickerComponent,
-    BudgetPickerComponent,
     LoginComponent,
     AutocompleteComponent
   ],
