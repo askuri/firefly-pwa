@@ -29,5 +29,10 @@
     <input matInput type="number" formControlName="amount" step="0.01" required>
   </mat-form-field>
   <br>
+  <!-- Budget -->
+  <app-form-budget-picker [parentForm]="addTransactionForm"
+                          [parentFormControl]="addTransactionForm.get('budget')"></app-form-budget-picker>
+  <br>
+  <br>
   <button mat-raised-button color="primary">Submit</button>
 </form>
