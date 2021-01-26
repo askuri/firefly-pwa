@@ -4,31 +4,30 @@ import {AutocompleteService} from '../../../services/autocomplete.service';
 import {components, paths} from '../../../api-interface/firefly';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {Entry} from '../../../api-interface/autocomplete';
 
 @Component({
   selector: 'app-form-autocomplete',
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss']
 })
-export class AutocompleteComponent<T extends paths['/api/v1/autocomplete/bills']
-  | paths['/api/v1/autocomplete/budgets']> implements OnInit {
+export class AutocompleteComponent implements OnInit {
   // reference to the parent form
   @Input() parentForm: FormGroup;
   // reference to the Form Control inside the Parent Form so we know where to store the data.
   @Input() parentFormControl: FormControl;
 
-  @Input() t: T;
-  @Input() tPath: string;
+  @Input() apiPath: string;
 
-  options: T['get']['responses'][200]['application/json'];
-  filteredOptions: Observable<T['get']['responses'][200]['application/json']>;
+  options: Entry[];
+  filteredOptions: Observable<Entry[]>;
 
   constructor(
     private autocompleteService: AutocompleteService,
   ) { }
 
   ngOnInit(): void {
-    this.autocompleteService.getAutocomplete<T>({ limit: -1 }, this.tPath)
+    this.autocompleteService.getAutocomplete({ limit: -1 }, this.apiPath)
       .subscribe((data) => {
         this.options = data;
 
@@ -41,7 +40,7 @@ export class AutocompleteComponent<T extends paths['/api/v1/autocomplete/bills']
       });
   }
 
-  private _filter(value: string): T['get']['responses'][200]['application/json'] {
+  private _filter(value: string): Entry[] {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
@@ -50,17 +49,8 @@ export class AutocompleteComponent<T extends paths['/api/v1/autocomplete/bills']
   /**
    * Gives the display name of autocomplete entry. Used with displayWith
    */
-  displayFn(entry: AutocompleteEntryInterface): string {
+  displayFn(entry: Entry): string {
     return entry && entry.name ? entry.name : '';
   }
 }
 
-/**
- * Each entry of an AutocompleteXxxArray looks like this.
- * To avoid writing long generics for that as well, we just manually define
- * the interface here.
- */
-interface AutocompleteEntryInterface {
-  id: number;
-  name: string;
-}
