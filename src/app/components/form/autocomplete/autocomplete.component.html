@@ -1,6 +1,6 @@
 <mat-form-field [formGroup]="parentForm"> <!-- this form belongs to the parent form that this component receives as a parameter -->
-  <mat-label>Budget</mat-label>
-  <input type="text" matInput [matAutocomplete]="auto" [formControl]="parentFormControl">
+  <mat-label>{{ label }}</mat-label>
+  <input type="text" matInput [matAutocomplete]="auto" [formControl]="parentFormControl" [required]="isRequired ? '' : null">
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
       {{option.name}}

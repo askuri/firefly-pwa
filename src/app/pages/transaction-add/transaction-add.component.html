@@ -32,12 +32,16 @@
   <!-- Budget -->
   <app-form-autocomplete [parentForm]="addTransactionForm"
                          [parentFormControl]="addTransactionForm.get('budget')"
-                         [apiPath]="'/api/v1/autocomplete/budgets'"></app-form-autocomplete>
+                         [apiPath]="'/api/v1/autocomplete/budgets'"
+                         [label]="'Budget'"
+  ></app-form-autocomplete>
   <br>
   <!-- Category -->
   <app-form-autocomplete [parentForm]="addTransactionForm"
                          [parentFormControl]="addTransactionForm.get('category')"
-                         [apiPath]="'/api/v1/autocomplete/categories'"></app-form-autocomplete>
+                         [apiPath]="'/api/v1/autocomplete/categories'"
+                         [label]="'Category'"
+  ></app-form-autocomplete>
   <br>
   <button mat-raised-button color="primary">Submit</button>
 </form>

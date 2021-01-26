@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AutocompleteService} from '../../../services/autocomplete.service';
-import {components, paths} from '../../../api-interface/firefly';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {Entry} from '../../../api-interface/autocomplete';
@@ -18,6 +17,8 @@ export class AutocompleteComponent implements OnInit {
   @Input() parentFormControl: FormControl;
 
   @Input() apiPath: string;
+  @Input() label: string;
+  @Input() isRequired = false;
 
   options: Entry[];
   filteredOptions: Observable<Entry[]>;
