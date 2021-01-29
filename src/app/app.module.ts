@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TransactionAddComponent } from './pages/transaction-add/transaction-add.component';
 import { AccountPickerComponent } from './components/form/account-picker/account-picker.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AutocompleteComponent } from './components/form/autocomplete/autocomplete.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,7 +24,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AutocompleteComponent } from './components/form/autocomplete/autocomplete.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { AutocompleteComponent } from './components/form/autocomplete/autocomple
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
