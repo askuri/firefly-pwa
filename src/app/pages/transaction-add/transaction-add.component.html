@@ -43,5 +43,12 @@
                          [label]="'Category'"
   ></app-form-autocomplete>
   <br>
+  <!-- Bill -->
+  <app-form-autocomplete [parentForm]="addTransactionForm"
+                         [parentFormControl]="addTransactionForm.get('bill')"
+                         [apiPath]="'/api/v1/autocomplete/bills'"
+                         [label]="'Bill'"
+  ></app-form-autocomplete>
+  <br>
   <button mat-raised-button color="primary">Submit</button>
 </form>
