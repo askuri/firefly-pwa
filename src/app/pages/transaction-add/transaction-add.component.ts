@@ -16,7 +16,6 @@ export class TransactionAddComponent implements OnInit {
     amount: new FormControl(''),
     budget: new FormControl(''),
     category: new FormControl(''),
-    tags: new FormControl(''),
     bill: new FormControl(''),
     notes: new FormControl('')
   });
