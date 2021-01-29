@@ -23,7 +23,7 @@
       <!-- Date -->
       <mat-form-field appearance="standard">
         <mat-label>Date</mat-label>
-        <input matInput formControlName="date" [matDatepicker]="picker" required>
+        <input matInput autocomplete="off" formControlName="date" [matDatepicker]="picker" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
