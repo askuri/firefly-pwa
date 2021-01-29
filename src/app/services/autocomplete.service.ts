@@ -19,10 +19,6 @@ export class AutocompleteService {
     return this.apiClient.get('/api/v1/autocomplete/accounts', params) as Observable<components['schemas']['AutocompleteAccountArray']>;
   }
 
-  getBudgets(params: operations['getBudgetsAC']['parameters']['query']): Observable<components['schemas']['AutocompleteBudgetArray']> {
-    return this.apiClient.get('/api/v1/autocomplete/budgets', params) as Observable<components['schemas']['AutocompleteBudgetArray']>;
-  }
-
   getAutocomplete(params: QueryParameter, path: string): Observable<Entry[]> {
     return this.apiClient.get(path, params) as Observable<Entry[]>;
   }
