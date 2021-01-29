@@ -4,15 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiTokenService {
+  private TOKEN_NAME = 'firefly-pwa_api_token';
 
   constructor() { }
 
   public setToken(token: string): void {
-    localStorage.setItem('firefly-pwa_api_token', token);
+    // we need to remove the old one, otherwise it's turned into
+    // an array in localStorage
+    if (this.isTokenSet()) {
+      this.deleteToken();
+    }
+    localStorage.setItem(this.TOKEN_NAME, token);
   }
 
   public getToken(): string {
-    return localStorage.getItem('firefly-pwa_api_token');
+    return localStorage.getItem(this.TOKEN_NAME);
+  }
+
+  public deleteToken(): void {
+    localStorage.removeItem(this.TOKEN_NAME);
   }
 
   public isTokenSet(): boolean {
