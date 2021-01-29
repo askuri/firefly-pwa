@@ -12,7 +12,7 @@ export class TransactionAddComponent implements OnInit {
     description: new FormControl(''),
     sourceAccount: new FormControl(''),
     destinationAccount: new FormControl(''),
-    date: new FormControl(''),
+    date: new FormControl(new Date()),
     amount: new FormControl(''),
     budget: new FormControl(''),
     category: new FormControl(''),
