@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'production', // set environment for workbox only (`production` or `development`)
   entry: './swtemplate.ts',
   output: {
     path: path.resolve(__dirname, '.'),

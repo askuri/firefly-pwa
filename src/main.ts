@@ -10,7 +10,7 @@ if (environment.production) {
 }
 
 function loadServiceWorker(): void {
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && environment.production) {
     const wb = new Workbox('/sw.js');
     wb.register();
   }
