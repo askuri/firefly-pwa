@@ -9,13 +9,21 @@ import {components, operations} from '../api-interface/firefly';
 })
 export class ApiClientService {
 
+  private host = 'https://firefly.askuri.de/';
+
   constructor(
     private http: HttpClient,
     private apiTokenService: ApiTokenService
   ) { }
 
-  public get(url: string, params): Observable<object> {
-    return this.http.get(url, {
+  /**
+   * Perform a GET request against the API.
+   *
+   * @param path e.g. 'api/v1/transactions'
+   * @param params Query parameters
+   */
+  public get(path: string, params): Observable<object> {
+    return this.http.get(this.host + path, {
       params,
       headers: {
         Authorization: 'Bearer ' + this.apiTokenService.getToken()
@@ -23,8 +31,13 @@ export class ApiClientService {
     });
   }
 
-  public post(url: string, body): Observable<object> {
-    return this.http.post(url, body, {
+  /**
+   * Perform a POST request against the API.
+   *
+   * @param path e.g. 'api/v1/transactions'
+   */
+  public post(path: string, body): Observable<object> {
+    return this.http.post(this.host + path, body, {
       headers: {
         Authorization: 'Bearer ' + this.apiTokenService.getToken()
       }

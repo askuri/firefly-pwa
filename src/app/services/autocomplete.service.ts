@@ -16,7 +16,7 @@ export class AutocompleteService {
   ) { }
 
   getAccounts(params: operations['getAccountsAC']['parameters']['query']): Observable<components['schemas']['AutocompleteAccountArray']> {
-    return this.apiClient.get('/api/v1/autocomplete/accounts', params) as Observable<components['schemas']['AutocompleteAccountArray']>;
+    return this.apiClient.get('api/v1/autocomplete/accounts', params) as Observable<components['schemas']['AutocompleteAccountArray']>;
   }
 
   getAutocomplete(params: QueryParameter, path: string): Observable<Entry[]> {

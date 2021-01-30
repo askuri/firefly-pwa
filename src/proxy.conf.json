@@ -1,6 +1,0 @@
-{
-  "/api": {
-    "target": "https://firefly.askuri.de",
-    "secure": false
-  }
-}
