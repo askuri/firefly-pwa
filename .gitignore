@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/src/workbox/swtemplate.js # webpack output of the workbox template in typscript
 # Only exists if Bazel was run
 /bazel-out
 
